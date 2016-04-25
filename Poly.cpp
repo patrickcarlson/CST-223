@@ -52,11 +52,16 @@ std::ostream& operator<<(std::ostream& out, Poly& A)
 Poly& operator+(Poly & A, Poly & B)
 {
 	if (B.coeff.size() < A.coeff.size())
-	{
-		for (std::vector<int>::reverse_iterator rit = A.coeff.rbegin(); rit != A.coeff.rend(); ++rit)
+	{ 
+		std::vector<int>::reverse_iterator orit = B.coeff.rbegin();
+		for (std::vector<int>::reverse_iterator rit = A.coeff.rbegin(); orit != B.coeff.rend(); ++rit, ++orit)
 		{
-			*rit += 
+			*rit += *orit;
 		}
+	}
+	else
+	{
+		//copy loop if A smaller...function better?
 	}
 
 	return A;
