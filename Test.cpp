@@ -1,3 +1,9 @@
+/*
+**CST 223
+**Patrick Carlson
+**Copyright
+*/
+
 #include "Poly.h"
 
 void main()
