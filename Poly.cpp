@@ -53,15 +53,35 @@ Poly& operator+(Poly & A, Poly & B)
 {
 	if (B.coeff.size() < A.coeff.size())
 	{ 
+
 		std::vector<int>::reverse_iterator orit = B.coeff.rbegin();
 		for (std::vector<int>::reverse_iterator rit = A.coeff.rbegin(); orit != B.coeff.rend(); ++rit, ++orit)
 		{
 			*rit += *orit;
 		}
+
+		return A;
 	}
 	else
 	{
-		//copy loop if A smaller...function better?
+		std::vector<int>::reverse_iterator orit = A.coeff.rbegin();
+		for (std::vector<int>::reverse_iterator rit = B.coeff.rbegin(); orit != A.coeff.rend(); ++rit, ++orit)
+		{
+			*rit += *orit;
+		}
+
+		return B;
+	}
+}
+
+Poly & operator-(Poly & A, Poly & B)
+{
+	std::vector<int>::reverse_iterator Arit = A.coeff.rbegin();
+	std::vector<int>::reverse_iterator Brit = B.coeff.rbegin();
+
+	for (; Arit != A.coeff.rend() && Brit != B.coeff.rend(); ++Arit, ++Brit)
+	{
+		*Arit -= *Brit;
 	}
 
 	return A;

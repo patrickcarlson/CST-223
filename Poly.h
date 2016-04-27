@@ -15,7 +15,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, Poly& A);
 	std::vector<int> getcoeff();
 	friend Poly& operator+(Poly& A, Poly& B);
-	//friend Poly& operator-(Poly& A, Poly& B);
+	friend Poly& operator-(Poly& A, Poly& B);
 	//friend Poly& operator*(Poly& A, Poly& B);
 	~Poly();
 
